@@ -11,7 +11,7 @@ router.get("/ping", (req, res) => {
     res.send("pong")
 });
 
-router.get("/api/users/new", (req, res) => {
+router.get("/users/new", (req, res) => {
     //res.send(__dirname)
     res.sendFile(path.join(__dirname, "..", "", "new.html"));
 });

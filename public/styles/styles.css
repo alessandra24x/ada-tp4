@@ -1,0 +1,27 @@
+body {
+  background-image: url("/styles/fondo.png");
+}
+
+#filter-form {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+a {
+  font-size: 22px;
+  margin-left: 20px;
+  color: black;
+}
+
+h3 {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

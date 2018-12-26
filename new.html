@@ -6,24 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
-    <form>
-        <fieldset>
-            Nombre:<br>
-            <input type="text" name="name" value="" maxlength="30">
-            <br> Apellido:<br>
-            <input type="text" name="lastname" value="" maxlength="30">
-            <br> DNI: <br>
-            <input type="number" name="dni" value="">
-            <br> Email:<br>
-            <input type="email" name="email" value="">
-            <br><br>
-            <input type="submit" value="Guardar">
-        </fieldset>
-    </form>
+    <div class="container">
+        <div class="row">
 
+            <form>
+                <fieldset>
+                    Nombre:<br>
+                    <input type="text" name="name" value="" maxlength="30">
+                    <br> Apellido:<br>
+                    <input type="text" name="lastname" value="" maxlength="30">
+                    <br> Telefono: <br>
+                    <input type="number" name="phone" value="">
+                    <br> Email:<br>
+                    <input type="email" name="email" value="">
+                    <br><br>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </fieldset>
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <div id="ex1" class="modal">
+        <p></p>
+        <a href="/users">Volver</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="/javascripts/new.js"></script>
 </body>
 
 </html>

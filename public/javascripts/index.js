@@ -6,13 +6,13 @@ $.ajax("/api/users").done(function(data) {
 function buildTableUsers(users) {
     for (let i = 0; i < users.length; i++) {
         $tableUsers.append(`
-        <tr data-id=${users[i].id}>
+        <tr class="fila-usuario" data-id=${users[i].id}>
             <td>${users[i].nombre}</td>
             <td>${users[i].apellido}</td>
             <td>${users[i].telefono}</td>
             <td>${users[i].email}</td>
-            <td><button class="btn edit">Editar</button></td>
-            <td><button class="btn delete" >Borrar</button></td>
+            <td><button class="btn edit btn btn-primary"">Editar</button></td>
+            <td><button class="btn delete btn btn-primary"" >Borrar</button></td>
         </tr>
     `);
     }
@@ -32,17 +32,34 @@ $(document).on("click", ".btn.edit", function() {
 });
 
 $(document).on("click", ".btn.delete", function() {
-    const id = $(this)
+    const self = $(this);
+    const id = self
         .parent()
         .parent()
         .data("id");
 
-    $(this)
-        .parent()
-        .parent()
-        .remove();
-
     $.ajax(`/api/users/${id}`, {
-        method: "delete"
-    });
+            method: "delete"
+        })
+        .done(function() {
+            self.parent().parent().remove();
+        })
+        .fail(function() {
+            $('#ex1 p').html("algo explotó");
+            $('#ex1').modal();
+        })
+});
+
+$('#filter-form button').click(function() {
+    const search = $('#filter-form input').val();
+
+    $.ajax('/api/users?search=' + search)
+        .done(function(data) {
+            $('table tr.fila-usuario').remove();
+            buildTableUsers(data);
+        })
+        .fail(function() {
+            $('#ex1 p').html("algo salió mal");
+            $('#ex1').modal();
+        })
 });
